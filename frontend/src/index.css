@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "flowbite";
+
+
+body {
+          background: #0f0f10;
+          color: #fff;
+}
+
+
+textarea {
+          color: #fff;
+}
+.apexcharts-menu {
+          background-color: #000 !important;
+          border: 1px solid #343 !important;
+          color: #fff !important;
+}
+
+.apexcharts-menu-item {
+          color: #fff !important;
+          transition: background 0.2s ease-in-out;
+}
+
+.apexcharts-menu-item:hover {
+          background-color: #222 !important;
+}
