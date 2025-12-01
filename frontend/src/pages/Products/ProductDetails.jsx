@@ -6,7 +6,6 @@ import {
   useGetProductDetailsQuery,
   useCreateReviewMutation,
 } from "../../redux/api/productApiSlice";
-import Loader from "../../components/Loader";
 import Message from "../../components/Message";
 import {
   FaArrowCircleLeft,
@@ -19,7 +18,7 @@ import {
 import { LoaderCircle } from "lucide-react"; // ✅ Added Lucide loader
 import moment from "moment";
 import HeartIcon from "./HeartIcon2";
-import Ratings from "./ratings";
+import Ratings from "./Ratings";
 import ProductsTabs from "./ProductsTabs";
 import { addToCart } from "../../redux/features/cart/cartSlice";
 
@@ -68,7 +67,7 @@ const ProductDetails = () => {
       <div>
         <Link
           to="/"
-          className="text-white font-semibold text-[1.1rem] hover:underline ml-[1rem] md:ml-[10rem] flex gap-2"
+          className="text-white font-semibold text-[1.1rem] hover:underline ml-4 md:ml-40 flex gap-2"
         >
           <FaArrowCircleLeft className="translate-y-1" />
           Go Back
@@ -76,7 +75,7 @@ const ProductDetails = () => {
       </div>
 
       {isLoading ? (
-        <div className="flex flex-col items-center justify-center mt-[6rem] text-white">
+        <div className="flex flex-col items-center justify-center mt-24 text-white">
           <LoaderCircle className="animate-spin text-pink-500 w-12 h-12 mb-4" />
           <p className="text-gray-300 text-lg">Loading product details...</p>
         </div>
@@ -87,9 +86,9 @@ const ProductDetails = () => {
       ) : (
         <>
           {/* MAIN GRID: unchanged logic; added lg:ml-[4rem] for large screens */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start mt-[2rem] gap-8 md:px-[5rem] lg:ml-[3rem]">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-start mt-8 gap-8 md:px-20 lg:ml-12">
             {/* Image with Overlay (size reduced on md/lg to be less huge) */}
-            <div className="relative w-full md:w-[28rem] lg:w-[33rem] h-[22rem] lg:h-[33rem] md:h-[28rem] rounded overflow-hidden">
+            <div className="relative w-full md:w-md lg:w-132 h-88 lg:h-132 md:h-112 rounded overflow-hidden">
               <img
                 src={product.image}
                 alt={product.name}
@@ -143,16 +142,16 @@ const ProductDetails = () => {
             </div>
 
             {/* Product Info (kept original logic; tightened description width for lg) */}
-            <div className=" flex flex-col justify-start  md:ml-[2rem] w-full">
-              <h2 className="text-xl md:text-2xl font-semibold ml-[1rem] md:ml-[0rem]">
+            <div className=" flex flex-col justify-start  md:ml-8 w-full">
+              <h2 className="text-xl md:text-2xl font-semibold ml-4 md:ml-0">
                 {product.name}
               </h2>
 
-              <p className="mt-4 text-[#B0B0B0] w-[23rem] lg:w-[30rem] ml-[1rem] md:ml-[0rem]">
+              <p className="mt-4 text-[#B0B0B0] w-92 lg:w-120 ml-4 md:ml-0">
                 {product.description}
               </p>
 
-              <div className="mt-4 flex justify-start ml-[1rem] md:ml-[0rem]">
+              <div className="mt-4 flex justify-start ml-4 md:ml-0">
                 <Ratings
                   value={product.numReviews}
                   text={`${product.numReviews} Reviews`}
@@ -162,11 +161,11 @@ const ProductDetails = () => {
               <div className="grid grid-cols-2 mt-4 border-t pt-4 border-gray-400">
                 <div className="mr-4 md:mr-16">
                   {product.countInStock > 0 && (
-                    <div className="ml-2 md:ml-[3rem]">
+                    <div className="ml-2 md:ml-12">
                       <select
                         value={qty}
                         onChange={(e) => setQty(e.target.value)}
-                        className="p-2 w-[5rem] rounded-lg bg-black text-white"
+                        className="p-2 w-20 rounded-lg bg-black text-white"
                       >
                         {[...Array(product.countInStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
@@ -190,7 +189,7 @@ const ProductDetails = () => {
             </div>
 
             {/* Tabs Section (unchanged) */}
-            <div className="mt-[3rem] w-full md:w-[90%] flex flex-wrap items-start justify-center md:justify-between">
+            <div className="mt-12 w-full md:w-[90%] flex flex-wrap items-start justify-center md:justify-between">
               <ProductsTabs
                 LoadingProductReview={LoadingProductReview}
                 userInfo={userInfo}
