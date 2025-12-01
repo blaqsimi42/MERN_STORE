@@ -10,7 +10,7 @@ import AdminMenu from "./AdminMenu";
 import AllOrders from "./AllOrders";
 import Loader from "../../components/Loader";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
-import { formatCurrency } from "../../utils/formatCurrency"; // ✅ Import formatter
+import { formatCurrency } from "../../Utils/formatCurrency.js"
 
 const AdminDashboard = () => {
   const { data: sales, isLoading: loadingSales } = useGetTotalSalesQuery();
@@ -110,14 +110,14 @@ const AdminDashboard = () => {
     <>
 
 
-      <section className="xl:ml-[4rem] md:ml-[0rem] ml-[1rem] text-white">
+      <section className="xl:ml-16 md:ml-0 ml-4 text-white">
         
-        <div className="w-[80%] grid ml-[2rem] md:ml-[3rem] lg:ml-[5rem] justify-center lg:grid-cols-3 gap-[4rem]">
+        <div className="w-[80%] grid ml-8 md:ml-12 lg:ml-20 justify-center lg:grid-cols-3 gap-16">
           {/* Total Sales */}
           
           <div className="rounded-lg bg-[#111] p-5 w-[20rem] mt-5 shadow-md">
             <div className="font-bold text-center p-4">
-              <p className="text-[2rem] w-[3rem] h-[3rem] bg-pink-500 rounded-full flex items-center justify-center">
+              <p className="text-[2rem] w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
                 ₦
               </p>
             </div>
@@ -129,7 +129,7 @@ const AdminDashboard = () => {
 
           {/* Customers */}
           <div className="rounded-lg bg-[#111] p-5 w-[20rem] mt-5 shadow-md">
-            <div className="font-bold rounded-full text-center p-3 w-[3rem] h-[3rem] bg-pink-500 ml-[1rem] flex items-center justify-center">
+            <div className="font-bold rounded-full text-center p-3 w-12 h-12 bg-pink-500 ml-4 flex items-center justify-center">
               <FaUser size={22} />
             </div>
             <p className="mt-8 text-white">Customers</p>
@@ -138,7 +138,7 @@ const AdminDashboard = () => {
 
           {/* Orders */}
           <div className="rounded-lg bg-[#111] p-5 w-[20rem] mt-5 shadow-md">
-            <div className="font-bold rounded-full w-[3rem] h-[3rem] bg-pink-500 text-center mt-4 p-2.5 ml-[1rem] flex items-center justify-center">
+            <div className="font-bold rounded-full w-12 h-12 bg-pink-500 text-center mt-4 p-2.5 ml-4 flex items-center justify-center">
               <FaShoppingCart size={22} />
             </div>
             <p className="mt-8 text-white">All Orders</p>
@@ -147,7 +147,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* ===== Chart ===== */}
-        <div className="ml-[2rem] md:ml-[8rem] mt-[5rem]">
+        <div className="ml-8 md:ml-32 mt-20">
           {state.series[0].data.length > 0 ? (
            
               <Chart
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* ===== Orders ===== */}
-        <div className="mt-[5rem] md:mr-[7rem] mr-[1rem]">
+        <div className="mt-20 md:mr-28 mr-4">
           <AllOrders />
         </div>
       </section>

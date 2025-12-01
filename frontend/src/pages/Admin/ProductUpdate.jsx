@@ -111,11 +111,11 @@ const ProductUpdate = () => {
 
   return (
     <div className="container text-white">
-      <div className="xl:ml-[9rem] sm:mx-0 lg:ml-[4rem]">
+      <div className="xl:ml-36 sm:mx-0 lg:ml-16">
         <div className="flex flex-col md:flex-row">
           <AdminMenu />
 
-          <div className="md:w-3/4 p-30rem ml-[0rem] md:ml-[7rem] lg:ml-[8rem]">
+          <div className="md:w-3/4 p-30rem ml-0 md:ml-28 lg:ml-32">
             <div className="text-center text-2xl font-semibold mb-4">
               Update Product
             </div>

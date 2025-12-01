@@ -81,7 +81,7 @@ const ProductList = () => {
 
   return (
     <div className="container">
-      <div className="h-[50%] xl:ml-[9rem] md:ml-[13rem] sm:mx-[0]">
+      <div className="h-[50%] xl:ml-36 md:ml-52 sm:mx-0">
         <div className="flex flex-col md:flex-row">
           <AdminMenu />
 

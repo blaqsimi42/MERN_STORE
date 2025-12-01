@@ -72,9 +72,9 @@ const Login = () => {
   };
 
   return (
-    <section className="flex flex-wrap gap-8 px-10 ml-[1rem] md:ml-[0rem] lg:ml-[6rem] md:justify-center">
+    <section className="flex flex-wrap gap-8 px-10 ml-4 md:ml-0 lg:ml-24 md:justify-center">
       {/* Left Form */}
-      <div className="mt-[6rem] mb-4 w-[20rem]">
+      <div className="mt-24 mb-4 w-[20rem]">
         <h1 className="text-2xl font-semibold">Sign In</h1>
 
         <form onSubmit={submitHandler} className="mt-6 space-y-6">
@@ -215,7 +215,7 @@ const Login = () => {
       <img
         src={LoginBanner}
         alt="Login banner"
-        className="hidden lg:block h-[30rem] w-[63%] object-cover mt-20 rounded-lg"
+        className="hidden lg:block h-120 w-[63%] object-cover mt-20 rounded-lg"
       />
     </section>
   );

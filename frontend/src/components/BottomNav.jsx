@@ -40,10 +40,10 @@ const BottomNav = () => {
           fixed bottom-0 left-0 right-0
           bg-[#111]/70 backdrop-blur-md border-t border-gray-800
           flex justify-around items-center py-3
-          z-[1000] 
+          z-1000 
            md:flex lg:hidden
           transition-transform duration-500 ease-in-out
-          ${showNav ? "translate-y-0" : "translate-y-[100%]"}
+          ${showNav ? "translate-y-0" : "translate-y-full"}
         `}
       >
         {/* HOME */}

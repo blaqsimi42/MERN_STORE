@@ -38,19 +38,19 @@ const ProductCard = ({ p }) => {
           </div>
 
           {/* ✅ Brand Label */}
-          <span className="absolute bottom-1 right-3 bg-pink-100 text-pink-800 text-xs sm:text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300 translate-y-[rem] md:translate-y-[0] mr-[1rem] sm:mr-[2rem] md:mr-[1rem]">
+          <span className="absolute bottom-1 right-3 bg-pink-100 text-pink-800 text-xs sm:text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300 translate-y-[rem] md:translate-y-0 mr-4 sm:mr-8 md:mr-4">
             {p?.brand}
           </span>
         </Link>
 
         {/* ✅ Heart Icon */}
-        <div className="absolute top-[0rem] right-[6rem] sm:right-[9rem]">
+        <div className="absolute top-0 right-24 sm:right-36">
           <HeartIcon product={p} />
         </div>
       </div>
 
       {/* ✅ Product Info Section */}
-      <div className="p-3 sm:p-5 flex flex-col justify-between h-[11rem] sm:h-[13rem] md:h-[14rem]">
+      <div className="p-3 sm:p-5 flex flex-col justify-between h-44 sm:h-52 md:h-56">
         {/* Product Name & Price */}
         <div className="flex justify-between items-center mb-1 sm:mb-2">
           <h5 className="text-sm sm:text-lg font-semibold text-white truncate w-[70%]">

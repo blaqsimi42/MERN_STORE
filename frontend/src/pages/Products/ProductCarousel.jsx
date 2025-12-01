@@ -31,7 +31,7 @@ const ProductCarousel = () => {
   return (
     <div className="mb-4 xl:block lg:block md:block">
       {isLoading ? (
-        <div className="flex flex-col items-center justify-center mt-[6rem] text-white">
+        <div className="flex flex-col items-center justify-center mt-24 text-white">
           <LoaderCircle className="animate-spin text-pink-500 w-12 h-12 mb-4" />
           <p className="text-gray-300 text-lg">Loading top products...</p>
         </div>
@@ -42,7 +42,7 @@ const ProductCarousel = () => {
       ) : (
         <Slider
           {...settings}
-          className="xl:w-[34rem] lg:w-[34rem] mt- md:w-[56rem] sm:block"
+          className="xl:w-136 lg:w-136 mt- md:w-4xl sm:block"
         >
           {products?.map(
             ({
@@ -63,15 +63,15 @@ const ProductCarousel = () => {
                 <img
                   src={image}
                   alt={name}
-                  className="w-full rounded-lg object-cover h-[29rem]"
+                  className="w-full rounded-lg object-cover h-116"
                 />
 
                 {/* Overlay with product name and price */}
-                <div className="h-[29rem] absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent rounded-lg flex flex-col justify-end p-6">
+                <div className="h-116 absolute inset-0 bg-linear-to-t from-black/60 via-black/30 to-transparent rounded-lg flex flex-col justify-end p-6">
                   <h1 className="text-3xl font-bold text-white drop-shadow-lg mb-2">
                     {name}
                   </h1>
-                  <div className="w-[9rem]">
+                  <div className="w-36">
                     <p className="text-lg text-gray-200 mb-2 bg-pink-600 p-2 font-semibold rounded-2xl">
                       {price?.toLocaleString("en-NG", {
                         style: "currency",
@@ -80,16 +80,16 @@ const ProductCarousel = () => {
                     </p>
                   </div>
 
-                  <h1 className="flex items-center w-[15rem]">
+                  <h1 className="flex items-center w-60">
                     <FaClock className="mr-4 text-orange-400" /> Added:{" "}
                     {moment(createdAt).fromNow()}
                   </h1>
                 </div>
 
                 {/* Product details below the image */}
-                <div className="grid grid-cols-2 bg-[#111]/80 text-white p-4 rounded-b-lg gap-[1rem] md:gap-[3rem]">
+                <div className="grid grid-cols-2 bg-[#111]/80 text-white p-4 rounded-b-lg gap-4 md:gap-12">
                   <div className="one">
-                    <p className="w-[8rem] lg:w-[17rem] md:[17rem] flex flex-wrap">
+                    <p className="w-32 lg:w-68 md:[17rem] flex flex-wrap">
                       {description.substring(0, 60)}...
                     </p>
                     <div className="mt-2 two">
@@ -105,10 +105,10 @@ const ProductCarousel = () => {
                   </div>
 
                   <div className="ml-7">
-                    <h1 className="flex items-center mb-3 w-[15rem]">
+                    <h1 className="flex items-center mb-3 w-60">
                       <FaStore className="mr-4 text-blue-400" /> Brand : {brand}
                     </h1>
-                    <h1 className="flex items-center mb-3 w-[15rem]">
+                    <h1 className="flex items-center mb-3 w-60">
                       <FaStar className="mr-4 text-yellow-400" /> Reviews :{" "}
                       {numReviews}
                     </h1>

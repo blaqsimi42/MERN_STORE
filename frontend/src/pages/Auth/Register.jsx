@@ -89,14 +89,14 @@ const Register = () => {
   };
 
   return (
-    <section className="ml-[3rem] md:justify-center lg:ml-[6rem] flex flex-wrap">
+    <section className="ml-12 md:justify-center lg:ml-24 flex flex-wrap">
       {/* Left Form */}
-      <div className="mr-[4rem] mt-[3rem] md:mt-[5rem]">
+      <div className="mr-16 mt-12 md:mt-20">
         <h1 className="text-2xl font-semibold mb-4">Register</h1>
 
         <form
           onSubmit={submitHandler}
-          className="container w-[25rem] space-y-6"
+          className="container w-100 space-y-6"
         >
           {/* Username */}
           <div className="relative flex items-center bg-gray-100 rounded-md p-2">
@@ -263,7 +263,7 @@ const Register = () => {
       <img
         src={signupBanner}
         alt="Sign up"
-        className="h-[31rem] w-[65%] mt-20 rounded-lg hidden lg:block"
+        className="h-124 w-[65%] mt-20 rounded-lg hidden lg:block"
       />
     </section>
   );

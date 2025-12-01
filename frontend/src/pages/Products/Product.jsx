@@ -4,14 +4,14 @@ import HeartIcon from "./HeartIcon";
 
 const Product = ({ product }) => {
   return (
-    <div className="w-[20rem] ml-[2rem] p-3 relative duration-300 ease-in-out cursor-pointer">
+    <div className="w-[20rem] ml-8 p-3 relative duration-300 ease-in-out cursor-pointer">
       <div className="relative hover:scale-105 transition-transform ease-in-out">
         {/* Product image */}
         <img
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className="w-[16rem] h-[15rem] object-cover rounded"
+          className="w-[16rem] h-60 object-cover rounded"
         />
 
         {/* Heart icon */}

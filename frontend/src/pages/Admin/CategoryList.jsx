@@ -97,7 +97,7 @@ const CategoryList = () => {
 
   return (
     <>
-      <div className="lg:ml-[10rem] ml-[1rem] flex flex-col md:flex-row">
+      <div className="lg:ml-40 ml-4 flex flex-col md:flex-row">
          <AdminMenu />
         <div className="md:w-3/4 p-3">
           <div className="h-12 text-2xl font-semibold flex gap-2"><CgListTree /> Categories</div>

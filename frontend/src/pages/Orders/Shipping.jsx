@@ -67,10 +67,10 @@ const Shipping = () => {
   return (
     <div className="container mx-auto mt-10">
       <ProgressSteps step1 step2/>
-      <div className="mt-[4rem] flex justify-around items-center flex-wrap">
+      <div className="mt-16 flex justify-around items-center flex-wrap">
         <form
         onSubmit={submitHandler}
-        className="w-[40rem] p-14 border border-gray-800 rounded-2xl">
+        className="w-160 p-14 border border-gray-800 rounded-2xl">
           <h1 className="text-2xl font-semibold mb-4 text-pink-500">
             Shipping
           </h1>

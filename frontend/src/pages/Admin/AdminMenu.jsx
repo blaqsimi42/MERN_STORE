@@ -10,11 +10,11 @@ const AdminMenu = () => {
   };
 
   return (
-    <div className="mt-[2rem]">
+    <div className="mt-8">
       {/* Toggle button */}
       <button
         className={`${
-          isMenuOpen ? "top-[4rem] right-2" : "top-[5rem] lg:top-[1rem] right-12"
+          isMenuOpen ? "top-16 right-2" : "top-20 lg:top-4 right-12"
         } bg-[#363636] p-2 fixed rounded-lg`}
         onClick={toggleMenu}
       >
@@ -31,7 +31,7 @@ const AdminMenu = () => {
 
       {/* Dropdown menu */}
       {isMenuOpen && (
-        <section className="bg-[#151515] p-4 fixed right-12 top-[4rem] rounded-lg z-[9999]">
+        <section className="bg-[#151515] p-4 fixed right-12 top-16 rounded-lg z-9999">
           <ul className="list-none mt-2">
             <li>
               <NavLink

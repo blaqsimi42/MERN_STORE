@@ -16,7 +16,7 @@ const AllProducts = () => {
       <div className="flex flex-col md:flex-row gap-6">
         {/* Main Section */}
         <div className="flex-1 ">
-          <div className="ml-[0rem] md:ml-[4rem] flex items-center gap-2 mb-6">
+          <div className="ml-0 md:ml-16 flex items-center gap-2 mb-6">
             <CgViewList size={28} />
             <h2 className="text-2xl font-bold text-white">
               All Products{" "}
@@ -26,17 +26,17 @@ const AllProducts = () => {
 
           {/* Loader / Error / Products */}
           {isLoading ? (
-            <div className="flex ml-[16rem] justify-center items-center h-48 mt-[8rem]">
+            <div className="flex ml-64 justify-center items-center h-48 mt-32">
               <Loader />
             </div>
           ) : isError ? (
-            <div className="grid justify-center items-center ml-[16rem] mt-[6rem]">
+            <div className="grid justify-center items-center ml-64 mt-24">
               <Message variant="danger">
                 {isError?.data?.message || "Something went wrong!"}
               </Message>
             </div>
           ) : (
-            <div className="ml-[2rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 justify-items-center lg:w-[75rem] md:w-[40rem]">
+            <div className="ml-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 justify-items-center lg:w-300 md:w-160">
               {products?.map((product) => (
                 <Link
                   key={product._id}
@@ -56,7 +56,7 @@ const AllProducts = () => {
                   </div>
 
                   <div className="p-5 flex flex-col justify-between">
-                    <div className="flex justify-between items-center mb-2 h-[1rem]">
+                    <div className="flex justify-between items-center mb-2 h-4">
                       <h5 className="text-lg font-semibold text-white group-hover:text-pink-400 transition-colors">
                         {product.name}
                       </h5>

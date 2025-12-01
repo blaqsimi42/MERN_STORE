@@ -58,7 +58,7 @@ const UserList = () => {
   };
 
   return (
-    <div className="p-4 lg:ml-[4rem]">
+    <div className="p-4 lg:ml-16">
       <AdminMenu />
       <h1 className="text-2xl font-semibold mb-8 flex items-center justify-center text-white">
         <CgUser size={26} className="mr-2" />
@@ -66,7 +66,7 @@ const UserList = () => {
       </h1>
 
       {isLoading ? (
-        <div className="flex justify-center mt-[12rem]">
+        <div className="flex justify-center mt-48">
           <Loader />
         </div>
       ) : error ? (

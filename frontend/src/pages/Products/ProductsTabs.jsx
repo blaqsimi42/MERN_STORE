@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import Ratings from "./ratings";
+import Ratings from "./Ratings.jsx";
 import { useGetTopProductsQuery } from "../../redux/api/productApiSlice";
 import SmallProduct from "./SmallProduct.jsx";
 import Loader from "../../components/Loader.jsx";
@@ -21,7 +21,7 @@ const ProductsTabs = ({
 
   if (isLoading)
     return (
-      <div className="flex flex-col items-center justify-center mt-[4rem] text-white">
+      <div className="flex flex-col items-center justify-center mt-16 text-white">
         <LoaderCircle className="animate-spin text-pink-500 w-10 h-10 mb-3" />
         <p className="text-gray-300 text-lg">Loading related products...</p>
       </div>
@@ -34,7 +34,7 @@ const ProductsTabs = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
       {/* --- LEFT SIDE TABS --- */}
-      <section className="mr-[5rem] flex flex-col">
+      <section className="mr-20 flex flex-col">
         {[
           { id: 1, label: "Make A Review" },
           { id: 2, label: `All Reviews (${product.reviews.length})` },
@@ -68,7 +68,7 @@ const ProductsTabs = ({
                   required
                   value={rating}
                   onChange={(e) => setRating(Number(e.target.value))}
-                  className="p-2 border rounded-lg w-[20rem] md:w-[35rem] text-white  bg-black"
+                  className="p-2 border rounded-lg w-[20rem] md:w-140 text-white  bg-black"
                 >
                   <option value="">Select</option>
                   <option value="1">Inferior ★</option>
@@ -89,7 +89,7 @@ const ProductsTabs = ({
                   required
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
-                  className="p-2 border rounded-lg md:w-[35rem] w-[20rem] bg-black text-white"
+                  className="p-2 border rounded-lg md:w-140 w-[20rem] bg-black text-white"
                   placeholder="Input Comment here..."
                 />
               </div>
@@ -123,7 +123,7 @@ const ProductsTabs = ({
             {product?.reviews?.map((review) => (
               <div
                 key={review._id}
-                className="bg-[#1A1A1A] p-4 rounded-lg xl:ml-[2rem] sm:ml-[0rem] md:w-[38rem] w-[22rem] mb-5"
+                className="bg-[#1A1A1A] p-4 rounded-lg xl:ml-8 sm:ml-0 md:w-152 w-88 mb-5"
               >
                 {/* User Info Section */}
                 <div className="flex justify-between items-center">
@@ -153,7 +153,7 @@ const ProductsTabs = ({
 
       {/* --- TAB 3: Related Products (with hover price reveal) --- */}
       {activeTab === 3 && (
-        <section className="md:ml-[4rem] ml-1 w-[22rem] md:w-[26rem] grid grid-cols-2 gap-8 md:mt-0 mt-[2rem]">
+        <section className="md:ml-16 ml-1 w-88 md:w-104 grid grid-cols-2 gap-8 md:mt-0 mt-8">
           {!data ? (
             <Loader />
           ) : (

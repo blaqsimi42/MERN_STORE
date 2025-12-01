@@ -22,7 +22,7 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-[10rem]">
+    <div className="flex flex-col items-center justify-center mt-40">
       <h1 className="text-2xl font-semibold mb-4">Forgot Password</h1>
 
       <form onSubmit={submitHandler} className="space-y-4 w-[20rem]">

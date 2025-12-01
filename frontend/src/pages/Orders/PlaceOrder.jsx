@@ -59,7 +59,7 @@ const PlaceOrder = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             {/* 🛍️ Cart Items */}
-            <div className="md:col-span-2 bg-[#121212] rounded-2xl p-4 sm:p-6 md:ml-[4rem] shadow-lg border border-gray-800 overflow-hidden">
+            <div className="md:col-span-2 bg-[#121212] rounded-2xl p-4 sm:p-6 md:ml-16 shadow-lg border border-gray-800 overflow-hidden">
               <h2 className="text-xl sm:text-2xl font-semibold text-pink-500 mb-4 sm:mb-6">
                 Review Your Items
               </h2>
@@ -149,7 +149,7 @@ const PlaceOrder = () => {
                 <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                   Shipping Details
                 </h3>
-                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed break-words">
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed wrap-break-word">
                   {cart.shippingAddress.address}, {cart.shippingAddress.city},{" "}
                   {cart.shippingAddress.postalCode},{" "}
                   {cart.shippingAddress.country}

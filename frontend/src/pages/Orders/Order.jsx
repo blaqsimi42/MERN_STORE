@@ -9,7 +9,7 @@ import {
   usePayOrderMutation,
 } from "../../redux/api/orderApiSlice";
 import { PaystackButton } from "react-paystack";
-import { formatCurrency } from "../../utils/formatCurrency.js";
+import { formatCurrency } from "../../Utils/formatCurrency.js";
 import { Loader2 } from "lucide-react";
 
 const Order = () => {
@@ -95,7 +95,7 @@ const Order = () => {
     <div className="container mx-auto mt-10 px-4 sm:px-6 pt-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
         {/* 🛍️ Order Items */}
-        <div className="md:col-span-2 bg-[#121212] border border-gray-800 rounded-2xl p-4 sm:p-6 md:ml-[4rem] shadow-lg overflow-hidden">
+        <div className="md:col-span-2 bg-[#121212] border border-gray-800 rounded-2xl p-4 sm:p-6 md:ml-16 shadow-lg overflow-hidden">
           <h2 className="text-xl sm:text-2xl font-semibold text-pink-500 mb-4 sm:mb-6">
             Order Items
           </h2>

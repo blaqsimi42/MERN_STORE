@@ -11,7 +11,7 @@ const SmallProduct = ({ product }) => {
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className="lg:h-[14rem] lg:w-[14rem] md:h-[14rem] md:w-[14rem] h-[8rem] w-[8rem] rounded object-cover"
+          className="lg:h-56 lg:w-56 md:h-56 md:w-56 h-32 w-32 rounded object-cover"
         />
 
         {/* Heart icon */}
@@ -21,7 +21,7 @@ const SmallProduct = ({ product }) => {
         
 
         {/* Price tag */}
-        <div className="absolute left-2 bottom-[3rem] bg-pink-600 bg-opacity-90 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-md">
+        <div className="absolute left-2 bottom-12 bg-pink-600 bg-opacity-90 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-md">
           {product?.price?.toLocaleString("en-NG", {
             style: "currency",
             currency: "NGN",
@@ -31,7 +31,7 @@ const SmallProduct = ({ product }) => {
         {/* Product name */}
         <div className="pt-3 text-white">
           <Link to={`/product/${product._id}`}>
-            <h2 className="text-base font-medium truncate w-[14rem]">
+            <h2 className="text-base font-medium truncate w-56">
               {product.name}
             </h2>
           </Link>
