@@ -19,6 +19,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "apexcharts": "^5.3.5",
     "axios": "^1.12.1",
+    "canvas-confetti": "^1.9.4",
     "flowbite": "^3.1.2",
     "flowbite-react": "^0.12.9",
     "lucide-react": "^0.555.0",
