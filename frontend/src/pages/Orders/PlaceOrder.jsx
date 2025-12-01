@@ -7,7 +7,7 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import { clearCartItems } from "../../redux/features/cart/cartSlice";
 import { useCreateOrderMutation } from "../../redux/api/orderApiSlice.js";
-import { formatCurrency } from "../../utils/formatCurrency.js";
+import { formatCurrency } from "../../Utils/formatCurrency.js";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
