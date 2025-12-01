@@ -4,10 +4,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/frontend/.env
 
 # --- NODE MODULES ---
 node_modules/
-vite.config.js
+frontend/node_modules/
+backend/node_modules/
 
 # --- LOGS & DEBUG FILES ---
 npm-debug.log*
@@ -16,10 +18,11 @@ yarn-error.log*
 pnpm-debug.log*
 
 # --- BUILD OUTPUTS ---
+frontend/dist/
+frontend/build/
+backend/uploads/
 dist/
 build/
-.next/
-out/
 coverage/
 
 # --- SYSTEM FILES ---
@@ -34,16 +37,8 @@ Thumbs.db
 *.tmp
 *.swp
 *.log
-
-# --- BACKEND SPECIFIC ---
-/uploads/
 *.pid
 
-# --- FRONTEND SPECIFIC ---
-/frontend/node_modules/
-/frontend/build/
-/frontend/dist/
-/frontend/.env
-
 # --- MISC ---
-package-lock.json
+# Keep lockfiles (important for Render + pnpm)
+# DO NOT ignore package-lock.json or pnpm-lock.yaml
