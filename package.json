@@ -31,11 +31,11 @@
     "mongoose": "^8.18.1",
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
-    "nodemailer": "^7.0.10"
+    "nodemailer": "^7.0.10",
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10",
-    "cross-env": "^7.0.3"
+    "nodemon": "^3.1.10"
   },
     "engines": {
       "node": "20.x",
