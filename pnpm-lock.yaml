@@ -59,10 +59,10 @@ importers:
       nodemailer:
         specifier: ^7.0.10
         version: 7.0.11
-    devDependencies:
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
+    devDependencies:
       nodemon:
         specifier: ^3.1.10
         version: 3.1.11
