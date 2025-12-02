@@ -20,7 +20,7 @@ pnpm-debug.log*
 # --- BUILD OUTPUTS ---
 frontend/dist/
 frontend/build/
-backend/uploads/
+uploads/
 dist/
 build/
 coverage/
