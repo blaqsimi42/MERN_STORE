@@ -108,7 +108,7 @@ const VerifyOtp = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-pink-50 via-white to-pink-100 px-4">
+    <div className="flex items-center justify-center min-h-screen  px-4">
       <div className="bg-white p-8 rounded-2xl shadow-lg text-center w-full max-w-md transition-all duration-300">
         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
           Verify Your Account

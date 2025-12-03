@@ -2,7 +2,7 @@ const accountVerificationTemplate = (username, email, otp) => {
   const frontendBase =
     process.env.NODE_ENV === "production"
       ? process.env.FRONT_END_PROD
-      : process.env_FRONT_END_DEV;
+      : process.env.FRONT_END_DEV;
 
   const baseUrl = frontendBase || "http://localhost:5173";
   const verificationLink = `${baseUrl}/verify-account?email=${encodeURIComponent(
