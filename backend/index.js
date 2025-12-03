@@ -48,21 +48,29 @@ app.use(cookieParser());
 // ===============================
 // 🌐 CORS Setup
 // ===============================
-const allowedOrigins = [process.env.FRONT_END_DEV, process.env.FRONT_END_PROD];
+const allowedOrigins = [
+  process.env.FRONT_END_DEV,
+  process.env.FRONT_END_PROD,
+];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+      // Allow requests with no origin (like mobile apps, Postman)
+      if (!origin) return callback(null, true);
+
+      // Check if the request origin is allowed
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       } else {
         console.warn(`🚫 CORS blocked request from origin: ${origin}`);
-        callback(new Error("Not allowed by CORS"));
+        return callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true,
+    credentials: true, // allow cookies
   })
 );
+
 
 // ===============================
 // 🧭 API Routes

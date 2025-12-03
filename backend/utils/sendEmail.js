@@ -1,13 +1,6 @@
-import nodemailer from "nodemailer";
-import fetch from "node-fetch"; // built-in in Node 18+, else install node-fetch
+import nodemailer from "nodemailer"; // keep as is
 
 const sendEmail = async ({ to, subject, message }) => {
-  // --- Helper for logging with clarity ---
-  const logSuccess = (method) =>
-    console.log(`📧 Email sent successfully to ${to} via ${method}`);
-  const logFailure = (method, error) =>
-    console.error(`❌ ${method} failed:`, error.message || error);
-
   try {
     // --- Primary: SMTP ---
     const transporter = nodemailer.createTransport({
@@ -18,7 +11,9 @@ const sendEmail = async ({ to, subject, message }) => {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      tls: { rejectUnauthorized: false },
+      tls: {
+        rejectUnauthorized: false,
+      },
       connectionTimeout: 10000,
       greetingTimeout: 10000,
       socketTimeout: 10000,
@@ -34,19 +29,18 @@ const sendEmail = async ({ to, subject, message }) => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    logSuccess("SMTP");
-    console.log("➡ Message ID:", info.messageId);
+    console.log(`📧 Email sent successfully to ${to} via SMTP`);
+    console.log(`➡ Message ID: ${info.messageId}`);
   } catch (smtpError) {
-    logFailure("SMTP", smtpError);
+    console.error("❌ SMTP failed:", smtpError.message);
 
     try {
       // --- Fallback: Brevo API ---
-      const apiKey = process.env.BREVO_API_KEY || process.env.SMTP_PASS;
-      const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      const brevoResp = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "api-key": apiKey,
+          "api-key": process.env.SMTP_PASS, // Brevo SMTP API key
         },
         body: JSON.stringify({
           sender: {
@@ -59,16 +53,16 @@ const sendEmail = async ({ to, subject, message }) => {
         }),
       });
 
-      const data = await response.json();
+      const data = await brevoResp.json();
 
-      if (response.ok) {
-        logSuccess("Brevo API");
+      if (brevoResp.ok) {
+        console.log(`📧 Email sent successfully to ${to} via Brevo API`);
       } else {
-        logFailure("Brevo API", data);
+        console.error("❌ Brevo API failed:", data);
         throw new Error("Email delivery failed via API fallback");
       }
     } catch (apiError) {
-      logFailure("Email completely", apiError);
+      console.error("❌ Email sending completely failed:", apiError.message);
       throw new Error("Email delivery failed");
     }
   }
