@@ -147,7 +147,7 @@ const ProductDetails = () => {
                 {product.name}
               </h2>
 
-              <p className="mt-4 text-[#B0B0B0] w-92 lg:w-120 ml-4 md:ml-0">
+              <p className="mt-4 text-[#B0B0B0] w-83 lg:w-120 ml-4 md:ml-0">
                 {product.description}
               </p>
 

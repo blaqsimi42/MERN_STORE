@@ -150,7 +150,7 @@ const Cart = () => {
               </div>
 
               {/* Totals Section */}
-              <div className="mt-8 sm:w-[50rem] w-full">
+              <div className="mt-8 sm:w-[50rem] w-full ml-[0rem] lg:ml-[1rem]">
                 <div className="p-4 rounded-lg grid sm:grid-cols-3 grid-cols-1 gap-4 bg-[#1a1a1a]">
                   <h2 className="text-xl font-semibold text-white">
                     Total Items (

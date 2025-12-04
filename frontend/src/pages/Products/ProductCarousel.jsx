@@ -12,7 +12,7 @@ import {
   FaStar,
   FaStore,
 } from "react-icons/fa";
-import { LoaderCircle } from "lucide-react"; // ✅ Added Lucide loader
+import { LoaderCircle } from "lucide-react"; 
 
 const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
@@ -89,7 +89,7 @@ const ProductCarousel = () => {
                 {/* Product details below the image */}
                 <div className="grid grid-cols-2 bg-[#111]/80 text-white p-4 rounded-b-lg gap-4 md:gap-12">
                   <div className="one">
-                    <p className="w-32 lg:w-68 md:[17rem] flex flex-wrap">
+                    <p className="w-[4rem] md:w-[17rem] flex flex-wrap">
                       {description.substring(0, 60)}...
                     </p>
                     <div className="mt-2 two">

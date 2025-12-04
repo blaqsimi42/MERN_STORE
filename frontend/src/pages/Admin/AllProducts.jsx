@@ -15,8 +15,8 @@ const AllProducts = () => {
     <div className="container mx-auto px-6 py-6  min-h-screen">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Main Section */}
-        <div className="flex-1 ">
-          <div className="ml-0 md:ml-16 flex items-center gap-2 mb-6">
+        <div className="flex-1 ml-[0rem] md:ml-[0.6rem]">
+          <div className="ml-[0rem] md:ml-[5rem] flex items-center gap-2 mb-6">
             <CgViewList size={28} />
             <h2 className="text-2xl font-bold text-white">
               All Products{" "}

@@ -34,8 +34,8 @@ const Header = () => {
         </div>
 
         {/* ===== Small Products Grid ===== */}
-        <div className="w-full flex justify-center lg:w-auto md:ml-[0] ml-[6rem]">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 justify-items-center">
+        <div className="w-full  lg:translate-y-[-1.5rem] flex justify-center lg:w-auto md:ml-[0] ml-[6rem] ">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 justify-items-center">
             {data?.map((product) => (
               <SmallProduct key={product._id} product={product} />
             ))}
