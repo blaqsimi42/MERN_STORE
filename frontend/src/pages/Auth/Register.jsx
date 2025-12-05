@@ -89,7 +89,7 @@ const Register = () => {
   };
 
   return (
-    <section className="ml-12 md:justify-center lg:ml-24 flex flex-wrap">
+    <section className="ml-16 md:justify-center lg:ml-24 flex flex-wrap">
       {/* Left Form */}
       <div className="mr-16 mt-12 md:mt-20">
         <h1 className="text-2xl font-semibold mb-4">Register</h1>

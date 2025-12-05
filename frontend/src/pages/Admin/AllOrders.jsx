@@ -15,20 +15,20 @@ const AllOrders = () => {
     );
 
   return (
-    <div className="md:ml-20 ml-0 pr-6 py-4">
+    <div className="md:ml-[5rem] ml-[0rem]  md:mr-[0rem] py-4">
       <AdminMenu />
-      <h2 className="text-2xl font-semibold mb-8 text-gray-200">All Orders ({orders.length})</h2>
+      <h2 className="text-2xl font-semibold mb-8 text-gray-200 ml-[3rem]">All Orders ({orders.length})</h2>
 
       {orders?.length === 0 ? (
         <Message>No orders found</Message>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-[2.6rem]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-[1.7rem] md:ml-[2.6rem]">
           {orders.map((order) => (
             <div
               key={order._id}
               className="bg-[#1e1e1e] border border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden w-76"
             >
-              {/* 🖼 Image */}
+              {/*  Image */}
               <div className="w-full h-32 overflow-hidden">
                 <img
                   src={order.orderItems[0]?.image}
@@ -37,7 +37,7 @@ const AllOrders = () => {
                 />
               </div>
 
-              {/* 📋 Order Info */}
+              {/* Order Info */}
               <div className="p-3 flex flex-col gap-2">
                 <div>
                   <p className="text-gray-400 text-xs">

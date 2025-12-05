@@ -42,7 +42,7 @@ const ProductCarousel = () => {
       ) : (
         <Slider
           {...settings}
-          className="xl:w-136 lg:w-136 mt- md:w-4xl sm:block"
+          className="xl:w-136 lg:w-136  md:w-4xl sm:block"
         >
           {products?.map(
             ({
@@ -89,7 +89,7 @@ const ProductCarousel = () => {
                 {/* Product details below the image */}
                 <div className="grid grid-cols-2 bg-[#111]/80 text-white p-4 rounded-b-lg gap-4 md:gap-12">
                   <div className="one">
-                    <p className="w-[4rem] md:w-[17rem] flex flex-wrap">
+                    <p className="w-[4rem] h-[4rem] md:w-[17rem] flex flex-wrap mb-[0rem] md:mb-[1rem]">
                       {description.substring(0, 60)}...
                     </p>
                     <div className="mt-2 two">

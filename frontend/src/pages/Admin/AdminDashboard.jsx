@@ -112,7 +112,7 @@ const AdminDashboard = () => {
 
       <section className="xl:ml-16 md:ml-0 ml-4 text-white">
         
-        <div className="w-[80%] grid ml-8 md:ml-12 lg:ml-20 justify-center lg:grid-cols-3 gap-16">
+        <div className="w-[80%] grid ml-8 md:ml-12 lg:ml-24 justify-center lg:grid-cols-3 gap-16">
           {/* Total Sales */}
           
           <div className="rounded-lg bg-[#111] p-5 w-[20rem] mt-5 shadow-md">

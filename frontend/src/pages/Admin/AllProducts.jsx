@@ -12,11 +12,11 @@ const AllProducts = () => {
   const { data: products, isLoading, isError } = useAllProductsQuery();
 
   return (
-    <div className="container mx-auto px-6 py-6  min-h-screen">
+    <div className="container mx-auto ml-[1rem] md:ml-[2rem] py-6  min-h-screen">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Main Section */}
-        <div className="flex-1 ml-[0rem] md:ml-[0.6rem]">
-          <div className="ml-[0rem] md:ml-[5rem] flex items-center gap-2 mb-6">
+        <div className="flex-1 ml-[0rem] md:ml-[0rem]">
+          <div className="ml-[0.6rem] md:ml-[4rem] flex items-center gap-2 mb-6">
             <CgViewList size={28} />
             <h2 className="text-2xl font-bold text-white">
               All Products{" "}
@@ -36,7 +36,7 @@ const AllProducts = () => {
               </Message>
             </div>
           ) : (
-            <div className="ml-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 justify-items-center lg:w-300 md:w-160">
+            <div className="ml-[1.6rem] lg:ml-[0rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3  lg:w-[70rem] md:w-[50rem] ">
               {products?.map((product) => (
                 <Link
                   key={product._id}
