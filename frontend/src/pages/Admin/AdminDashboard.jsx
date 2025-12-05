@@ -110,7 +110,7 @@ const AdminDashboard = () => {
     <>
 
 
-      <section className="xl:ml-16 md:ml-0 ml-4 text-white">
+      <section className="xl:ml-16 md:ml-0 ml-0 text-white">
         
         <div className="w-[80%] grid ml-8 md:ml-12 lg:ml-24 justify-center lg:grid-cols-3 gap-16">
           {/* Total Sales */}
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* ===== Orders ===== */}
-        <div className="mt-20 md:mr-28 mr-4">
+        <div className="mt-20 md:mr-[6rem] mr-[2rem]">
           <AllOrders />
         </div>
       </section>
