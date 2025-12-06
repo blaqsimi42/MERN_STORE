@@ -58,7 +58,7 @@ const UserList = () => {
   };
 
   return (
-    <div className="p-4 lg:ml-16">
+    <div className="p-4 ml-[0rem] lg:ml-[5rem] lg:w-4/5 grid justify-center">
       <AdminMenu />
       <h1 className="text-2xl font-semibold mb-8 flex items-center justify-center text-white">
         <CgUser size={26} className="mr-2" />
