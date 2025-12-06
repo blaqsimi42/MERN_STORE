@@ -54,6 +54,22 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled, getState }) {
+        try {
+          const { data } = await queryFulfilled;
+          const currentUser = getState().auth.userInfo;
+          if (currentUser) {
+            dispatch(
+              setCredientials({
+                ...currentUser,
+                isVerified: true, // update store immediately
+              })
+            );
+          }
+        } catch (err) {
+          console.error("Account verification failed:", err);
+        }
+      },
     }),
 
     resendVerificationOtp: builder.mutation({
@@ -62,6 +78,23 @@ export const userApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled, getState }) {
+        try {
+          const { data } = await queryFulfilled;
+          // optional: if backend returns updated user info
+          const currentUser = getState().auth.userInfo;
+          if (currentUser && data?.isVerified) {
+            dispatch(
+              setCredientials({
+                ...currentUser,
+                isVerified: data.isVerified,
+              })
+            );
+          }
+        } catch (err) {
+          console.error("Resend verification OTP failed:", err);
+        }
+      },
     }),
 
     // PASSWORD RESET
