@@ -1,8 +1,12 @@
-import nodemailer from "nodemailer"; // keep as is
+import nodemailer from "nodemailer";
 
 const sendEmail = async ({ to, subject, message }) => {
   try {
-    // --- Primary: SMTP ---
+    // ✅ Skip SMTP on Render (use API directly)
+    if (process.env.NODE_ENV === "production") {
+      throw new Error("SMTP not supported on Render; use fallback");
+    }
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp-relay.brevo.com",
       port: Number(process.env.SMTP_PORT) || 587,
@@ -11,9 +15,7 @@ const sendEmail = async ({ to, subject, message }) => {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+      tls: { rejectUnauthorized: false },
       connectionTimeout: 10000,
       greetingTimeout: 10000,
       socketTimeout: 10000,
@@ -23,6 +25,7 @@ const sendEmail = async ({ to, subject, message }) => {
       from: `"${process.env.FROM_NAME || "Miggle Technologies"}" <${
         process.env.FROM_EMAIL
       }>`,
+
       to,
       subject,
       html: message,
@@ -32,15 +35,15 @@ const sendEmail = async ({ to, subject, message }) => {
     console.log(`📧 Email sent successfully to ${to} via SMTP`);
     console.log(`➡ Message ID: ${info.messageId}`);
   } catch (smtpError) {
-    console.error("❌ SMTP failed:", smtpError.message);
+    console.error("❌ SMTP failed or skipped:", smtpError.message);
 
     try {
-      // --- Fallback: Brevo API ---
+      // ✅ Fallback to Brevo API
       const brevoResp = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "api-key": process.env.SMTP_PASS, // Brevo SMTP API key
+          "api-key": process.env.SMTP_PASS,
         },
         body: JSON.stringify({
           sender: {

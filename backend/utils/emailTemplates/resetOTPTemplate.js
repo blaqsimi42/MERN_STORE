@@ -1,6 +1,6 @@
 const resetOtpTemplate = (username, otp) => {
   return {
-    subject: "Your eXpress Store Verification OTP",
+    subject: "Your New OTP for eXpress Store Account Verification",
     message: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; background: #ffffff; border-radius: 10px; border: 1px solid #fce7f3;">
 

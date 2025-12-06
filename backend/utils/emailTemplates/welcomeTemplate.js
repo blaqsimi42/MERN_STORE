@@ -1,4 +1,11 @@
 const welcomeTemplate = (username) => {
+  const frontendBase =
+    process.env.NODE_ENV === "production"
+      ? process.env.FRONT_END_PROD
+      : process.env.FRONT_END_DEV;
+
+  const baseUrl = frontendBase || "http://localhost:5173";
+
   return {
     subject: "Welcome to eXpress Store!",
     message: `
@@ -20,7 +27,7 @@ const welcomeTemplate = (username) => {
           </p>
 
           <!-- BUTTON -->
-          <a href="https://yourexpressstore.com"
+          <a href="${baseUrl}"
             style="
               display: inline-block;
               margin-top: 18px;

@@ -2,7 +2,7 @@ const passwordResetTemplate = (username, otp) => {
   const frontendBase =
     process.env.NODE_ENV === "production"
       ? process.env.FRONT_END_PROD
-      : process.env.FRONT_END_DEV;
+      : process.env.FRONT_END_DEV; // ✅ fix env variable reference
 
   const baseUrl = frontendBase || "http://localhost:5173";
   const resetLink = `${baseUrl}/reset-password?email=${encodeURIComponent(

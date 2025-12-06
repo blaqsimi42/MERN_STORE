@@ -1,4 +1,13 @@
 const verifyOtpTemplate = (username) => {
+  // ✅ Use the same dynamic frontend base as other templates
+  const frontendBase =
+    process.env.NODE_ENV === "production"
+      ? process.env.FRONT_END_PROD
+      : process.env.FRONT_END_DEV;
+
+  const baseUrl = frontendBase || "http://localhost:5173";
+  const loginLink = `${baseUrl}/login`;
+
   return {
     subject: "Password Reset Successful!",
     message: `
@@ -19,7 +28,7 @@ const verifyOtpTemplate = (username) => {
           </p>
 
           <!-- BUTTON -->
-          <a href="https://yourexpressstore.com/login"
+          <a href="${loginLink}"
             style="
               display: inline-block;
               margin-top: 18px;
