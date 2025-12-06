@@ -89,7 +89,7 @@ const ProductCarousel = () => {
                 {/* Product details below the image */}
                 <div className="grid grid-cols-2 bg-[#111]/80 text-white p-4 rounded-b-lg gap-4 md:gap-12">
                   <div className="one">
-                    <p className="w-[4rem] h-[4rem] md:w-[17rem] flex flex-wrap mb-[0rem] md:mb-[1rem]">
+                    <p className="w-[8rem] h-[8rem] md:h-[4rem] md:w-[5rem] md:w-[17rem] flex flex-wrap mb-[1rem] md:mb-[0.6rem]">
                       {description.substring(0, 60)}...
                     </p>
                     <div className="mt-2 two">
@@ -112,7 +112,7 @@ const ProductCarousel = () => {
                       <FaStar className="mr-4 text-yellow-400" /> Reviews :{" "}
                       {numReviews}
                     </h1>
-                    <h1 className="flex items-center mb-3">
+                    <h1 className="flex items-center mb-3 w-60">
                       <FaBox className="mr-2 text-purple-400" /> In Stock :{" "}
                       {countInStock}
                     </h1>
