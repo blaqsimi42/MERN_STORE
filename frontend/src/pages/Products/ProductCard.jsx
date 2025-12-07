@@ -38,7 +38,7 @@ const ProductCard = ({ p }) => {
           </div>
 
           {/* Brand Label */}
-          <span className="absolute top-2 left-2 bg-pink-500/20 text-pink-200 text-[10px] font-medium px-2 py-[2px] rounded-full border border-pink-600/40 backdrop-blur-sm">
+          <span className="absolute top-2 left-2 bg-pink-500 text-white text-[10px] font-medium px-2 py-[2px] rounded-full border border-pink-500/40 backdrop-blur-sm">
             {p?.brand}
           </span>
         </Link>

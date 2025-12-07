@@ -100,8 +100,8 @@ const Shop = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Category Filter */}
               <div className="p-3 sm:p-5">
-                <h2 className="h4 text-center py-2 bg-black rounded-full mb-2 text-pink-500 font-semibold">
-                  Filter by Categories
+                <h2 className="h4 p-2 text-center py-2 bg-black rounded-full mb-2 text-pink-500 font-semibold">
+                  Filter Categories
                 </h2>
                 {Array.isArray(categories) && categories.length > 0 ? (
                   categories.map((c) =>
