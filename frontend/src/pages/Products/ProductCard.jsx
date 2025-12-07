@@ -11,25 +11,25 @@ const ProductCard = ({ p }) => {
 
   const addToCartHandler = (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
-    toast.success("Item added successfully", {
-      autoClose: 2000,
-    });
+    toast.success("Item added 🛒", { autoClose: 1500 });
   };
 
   return (
-    <div className="relative bg-[#1A1A1A] rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl">
-      {/* ✅ Product Image Section */}
-      <div className="relative group">
+    <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-2xl shadow-md overflow-hidden border border-gray-800 hover:border-pink-600 transition-all duration-400 group hover:shadow-pink-500/20 hover:-translate-y-1">
+      {/* ✅ Product Image */}
+      <div className="relative">
         <Link to={`/product/${p._id}`}>
-          <img
-            src={p.image}
-            alt={p.name}
-            className="w-full h-40 sm:h-52 md:h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          <div className="overflow-hidden">
+            <img
+              src={p.image}
+              alt={p.name}
+              className="w-full h-36 md:h-44 object-cover transform transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
 
-          {/* ✅ Hover Overlay (Price) */}
-          <div className="absolute inset-0 h-[10.3rem]  md:h-[15.4rem] bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <p className="text-pink-400 text-lg font-semibold">
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-2">
+            <p className="text-pink-400 text-[13px] font-semibold">
               {p?.price?.toLocaleString("en-NG", {
                 style: "currency",
                 currency: "NGN",
@@ -37,48 +37,37 @@ const ProductCard = ({ p }) => {
             </p>
           </div>
 
-          {/* ✅ Brand Label */}
-          <span className="absolute bottom-1 right-3 bg-pink-100 text-pink-800 text-xs sm:text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300 translate-y-[rem] md:translate-y-0 mr-4 sm:mr-8 md:mr-4">
+          {/* Brand Label */}
+          <span className="absolute top-2 left-2 bg-pink-500/20 text-pink-200 text-[10px] font-medium px-2 py-[2px] rounded-full border border-pink-600/40 backdrop-blur-sm">
             {p?.brand}
           </span>
         </Link>
 
-        {/* ✅ Heart Icon */}
-        <div className="absolute top-0 right-24 sm:right-36">
+        {/* ❤️ Heart */}
+        <div className="absolute top-[-13rem] right-[-3rem]">
           <HeartIcon product={p} />
         </div>
       </div>
 
-      {/* ✅ Product Info Section */}
-      <div className="p-3 sm:p-5 flex flex-col justify-between h-44 sm:h-52 md:h-56">
-        {/* Product Name & Price */}
-        <div className="flex justify-between items-center mb-1 sm:mb-2">
-          <h5 className="text-sm sm:text-lg font-semibold text-white truncate w-[70%]">
+      {/* ✅ Product Info */}
+      <div className="p-2.5 flex flex-col justify-between h-28">
+        <div>
+          <h5 className="text-[13px] sm:text-sm font-semibold text-white truncate mb-0.5">
             {p?.name}
           </h5>
-          <p className="font-semibold text-pink-500 text-sm sm:text-base hidden group-hover:block transition-opacity duration-300">
-            {p?.price?.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
+          <p className="text-[10px] sm:text-[11px] text-gray-400 line-clamp-2 leading-snug">
+            {p?.description?.substring(0, 60)}...
           </p>
         </div>
 
-        {/* Description (Reduced spacing on mobile) */}
-        <p className="text-xs sm:text-sm text-gray-400 mb-1 sm:mb-2 md:mb-3 line-clamp-2">
-          {p?.description?.substring(0, 80)}...
-        </p>
-
-        {/* Actions */}
-        <div className="flex justify-between items-center mt-auto">
+        <div className="flex justify-between items-center mt-2">
           <Link
             to={`/product/${p._id}`}
-            className="inline-flex items-center px-3 py-2 text-xs sm:text-sm font-medium text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-2 focus:ring-pink-400"
+            className="inline-flex items-center text-[11px] font-medium text-white bg-pink-600 hover:bg-pink-700 px-2.5 py-1.5 rounded-md transition-all duration-300 shadow hover:shadow-pink-400/30"
           >
-            Read More
+            View
             <svg
-              className="w-3.5 h-3.5 ml-2"
-              aria-hidden="true"
+              className="w-3 h-3 ml-1"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 14 10"
@@ -94,10 +83,13 @@ const ProductCard = ({ p }) => {
           </Link>
 
           <button
-            className="p-2 rounded-full hover:bg-gray-800 transition-colors duration-200"
             onClick={() => addToCartHandler(p, 1)}
+            className="p-1.5 bg-gray-800 hover:bg-pink-600 rounded-full transition-all duration-300 shadow hover:shadow-pink-400/20"
           >
-            <AiOutlineShoppingCart size={20} className="text-white" />
+            <AiOutlineShoppingCart
+              size={16}
+              className="text-white group-hover:rotate-6 transition-transform duration-300"
+            />
           </button>
         </div>
       </div>

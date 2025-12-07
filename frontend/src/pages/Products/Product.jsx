@@ -5,26 +5,28 @@ import HeartIcon from "./HeartIcon";
 const Product = ({ product }) => {
   return (
     <div className="w-[20rem] ml-8 p-3 relative duration-300 ease-in-out cursor-pointer">
-      <div className="relative hover:scale-105 transition-transform ease-in-out">
-        {/* Product image */}
-        <img
-          src={product.image}
-          alt={product.name}
-          loading="lazy"
-          className="w-[16rem] h-60 object-cover rounded"
-        />
+      <Link to={`/product/${product._id}`}>
+        <div className="relative hover:scale-105 transition-transform ease-in-out">
+          {/* Product image */}
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            className="w-[16rem] h-60 object-cover rounded"
+          />
 
-        {/* Heart icon */}
-        <HeartIcon product={product} />
+          {/* Heart icon */}
+          <HeartIcon product={product} />
 
-        {/* Price tag inside image (bottom-left corner) */}
-        <div className="absolute bottom-2 left-2 bg-pink-600 bg-opacity-90 text-white text-sm font-semibold px-2.5 py-1 rounded-full shadow-md">
-          {product?.price?.toLocaleString("en-NG", {
-            style: "currency",
-            currency: "NGN",
-          })}
+          {/* Price tag inside image (bottom-left corner) */}
+          <div className="absolute bottom-2 left-2 bg-pink-600 bg-opacity-90 text-white text-sm font-semibold px-2.5 py-1 rounded-full shadow-md">
+            {product?.price?.toLocaleString("en-NG", {
+              style: "currency",
+              currency: "NGN",
+            })}
+          </div>
         </div>
-      </div>
+      </Link>
 
       {/* Product name below image */}
       <div className="pt-3 text-white">
