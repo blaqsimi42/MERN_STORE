@@ -141,7 +141,7 @@ const ProductDetails = () => {
                   <div>
                     <p className="flex items-center gap-2 mb-2">
                       <FaStar className="text-yellow-400" /> Rating:{" "}
-                      {product.rating}
+                      {product.rating.toFixed(1)}
                     </p>
                     {/* ✅ Quantity here shows product stock (unchanged) */}
                     <p className="flex items-center gap-2 mb-2">

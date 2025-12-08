@@ -2,11 +2,11 @@ import React from "react";
 
 const ProgressSteps = ({ step1, step2, step3 }) => {
   return (
-    <div className="flex justify-center items-center gap-6 mt-6">
+    <div className="flex justify-center items-center gap-4 mt-6">
       {/* Step 1 */}
       <div className="flex flex-col items-center">
         <div
-          className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+          className={`flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-300 ${
             step1
               ? "border-white bg-green-500 text-white shadow-[0_0_10px_#22c55e]"
               : "border-white bg-transparent text-gray-400"
@@ -33,7 +33,7 @@ const ProgressSteps = ({ step1, step2, step3 }) => {
       {/* Step 2 */}
       <div className="flex flex-col items-center">
         <div
-          className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+          className={`flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-300 ${
             step2
               ? "border-white bg-green-500 text-white shadow-[0_0_10px_#22c55e]"
               : "border-white bg-transparent text-gray-400"
@@ -60,7 +60,7 @@ const ProgressSteps = ({ step1, step2, step3 }) => {
       {/* Step 3 */}
       <div className="flex flex-col items-center">
         <div
-          className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
+          className={`flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-300 ${
             step3
               ? "border-white bg-green-500 text-white shadow-[0_0_10px_#22c55e]"
               : "border-white bg-transparent text-gray-400"
