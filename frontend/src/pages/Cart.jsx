@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { FaSearch, FaTrash } from "react-icons/fa";
+import { Trash2, Plus, Minus, Loader2, Search } from "lucide-react"; // 🪶 lucide icons
 import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice";
 import { formatCurrency } from "../Utils/formatCurrency.js";
 import { toast } from "react-toastify";
@@ -18,6 +18,11 @@ const Cart = () => {
     useResendVerificationOtpMutation();
 
   const addToCartHandler = (product, qty) => {
+    if (qty <= 0) return;
+    if (qty > product.countInStock) {
+      toast.error("Not enough stock available.");
+      return;
+    }
     dispatch(addToCart({ ...product, qty }));
   };
 
@@ -49,29 +54,27 @@ const Cart = () => {
       navigate("/login?redirect=/shipping");
       return;
     }
-
     if (!userInfo.isVerified) {
       handleSendVerificationOtp();
       return;
     }
-
     navigate("/shipping");
   };
 
   return (
     <>
-      {/* Title */}
+      {/* 🏷️ Title */}
       <div className="lg mt-[3rem] sm:ml-[13rem] ml-4">
         <p className="uppercase font-bold text-lg text-white">
           Shopping Cart ({cartItems.length})
         </p>
       </div>
 
-      {/* Main Container */}
+      {/* 🛒 Main Container */}
       <div className="container flex justify-around items-start flex-wrap mx-auto mt-8 px-3">
         {cartItems.length === 0 ? (
           <div className="flex flex-col items-center mt-[10rem] gap-2 text-center">
-            <FaSearch size={24} className="text-pink-400" />
+            <Search size={24} className="text-pink-400" />
             <p className="font-semibold text-white">Your Cart is empty</p>
             <Link to="/shop" className="text-pink-500 hover:underline">
               Get items to your Cart
@@ -79,14 +82,13 @@ const Cart = () => {
           </div>
         ) : (
           <>
-            {/* Products Grid */}
-            <div className="flex flex-col w-[80%] md:w-[90%] ">
+            {/* 🧱 Product Grid */}
+            <div className="flex flex-col w-[80%] md:w-[90%]">
               <div
                 className="
                   grid 
                   grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
-                  gap-6
-                  justify-items-center
+                  gap-6 justify-items-center
                 "
               >
                 {cartItems?.map((item) => (
@@ -99,7 +101,7 @@ const Cart = () => {
                       w-full max-w-[14rem]
                     "
                   >
-                    {/* Image */}
+                    {/* 🖼️ Image */}
                     <div className="w-full h-[8rem] sm:h-[9rem] md:h-[10rem] overflow-hidden rounded">
                       <img
                         src={item.image}
@@ -108,7 +110,7 @@ const Cart = () => {
                       />
                     </div>
 
-                    {/* Info */}
+                    {/* 🏷️ Info */}
                     <div className="mt-3">
                       <Link
                         to={`/product/${item._id}`}
@@ -122,34 +124,38 @@ const Cart = () => {
                       </p>
                     </div>
 
-                    {/* Qty + Delete */}
+                    {/* ➕➖ Qty Controls + 🗑️ Delete */}
                     <div className="flex items-center justify-between w-full mt-3">
-                      <select
-                        className="w-[4rem] p-1 border rounded text-white bg-black"
-                        value={item.qty}
-                        onChange={(e) =>
-                          addToCartHandler(item, Number(e.target.value))
-                        }
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="flex items-center gap-2 bg-black px-2 py-1 rounded-md border border-gray-700">
+                        <button
+                          className="text-gray-300 hover:text-pink-500 transition"
+                          onClick={() => addToCartHandler(item, item.qty - 1)}
+                        >
+                          <Minus size={14} />
+                        </button>
+                        <span className="text-white text-sm w-5 text-center">
+                          {item.qty}
+                        </span>
+                        <button
+                          className="text-gray-300 hover:text-pink-500 transition"
+                          onClick={() => addToCartHandler(item, item.qty + 1)}
+                        >
+                          <Plus size={14} />
+                        </button>
+                      </div>
 
                       <button
-                        className="text-red-500 hover:text-red-400"
+                        className="text-red-500 hover:text-red-400 transition"
                         onClick={() => removeFromCartHandler(item._id)}
                       >
-                        <FaTrash size={16} />
+                        <Trash2 size={16} />
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Totals Section */}
+              {/* 💰 Totals Section */}
               <div className="mt-8 sm:w-[50rem] w-full ml-[0rem] lg:ml-[1rem]">
                 <div className="p-4 rounded-lg grid sm:grid-cols-3 grid-cols-1 gap-4 bg-[#1a1a1a]">
                   <h2 className="text-xl font-semibold text-white">
@@ -169,15 +175,20 @@ const Cart = () => {
                   </div>
 
                   <button
-                    className="bg-pink-500 py-2 px-4 rounded text-lg font-bold w-full hover:bg-pink-700 transition"
+                    className="bg-pink-500 py-2 px-4 rounded text-lg font-bold w-full hover:bg-pink-700 transition flex justify-center items-center gap-2"
                     disabled={cartItems.length === 0 || isResending}
                     onClick={checkoutHandler}
                   >
-                    {userInfo && !userInfo.isVerified
-                      ? isResending
-                        ? "Sending OTP..."
-                        : "Verify Account"
-                      : "Proceed To Checkout"}
+                    {isResending ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" />
+                        Sending OTP...
+                      </>
+                    ) : userInfo && !userInfo.isVerified ? (
+                      "Verify Account"
+                    ) : (
+                      "Proceed To Checkout"
+                    )}
                   </button>
                 </div>
               </div>

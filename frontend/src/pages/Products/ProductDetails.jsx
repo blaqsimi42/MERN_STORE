@@ -15,7 +15,7 @@ import {
   FaStar,
   FaStore,
 } from "react-icons/fa";
-import { LoaderCircle } from "lucide-react"; // ✅ Added Lucide loader
+import { LoaderCircle } from "lucide-react"; // ✅ Loader
 import moment from "moment";
 import HeartIcon from "./HeartIcon2";
 import Ratings from "./Ratings";
@@ -62,6 +62,21 @@ const ProductDetails = () => {
     navigate("/cart");
   };
 
+  // ✅ Plus and Minus quantity handlers
+  const increaseQty = () => {
+    if (qty < product.countInStock) {
+      setQty(qty + 1);
+    } else {
+      toast.info("No more stock available!");
+    }
+  };
+
+  const decreaseQty = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
+
   return (
     <>
       <div>
@@ -85,9 +100,9 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          {/* MAIN GRID: unchanged logic; added lg:ml-[4rem] for large screens */}
+          {/* MAIN GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 items-start mt-8 gap-8 md:px-20 lg:ml-12">
-            {/* Image with Overlay (size reduced on md/lg to be less huge) */}
+            {/* IMAGE */}
             <div className="relative w-full md:w-md lg:w-132 h-88 lg:h-132 md:h-112 rounded overflow-hidden">
               <img
                 src={product.image}
@@ -95,12 +110,12 @@ const ProductDetails = () => {
                 className="w-full h-full object-cover rounded"
               />
 
-              {/* Heart Icon (Top Right Corner) */}
+              {/* HEART ICON */}
               <div className="absolute top-5 right-8 md:right-10 z-20">
                 <HeartIcon product={product} />
               </div>
 
-              {/* Overlay info on image (logic / content unchanged) */}
+              {/* OVERLAY INFO */}
               <div className="absolute inset-0 bg-black/50 text-white flex flex-col justify-end p-4 md:p-6 rounded">
                 <h2 className="text-2xl md:text-4xl font-bold mb-2">
                   {product?.price?.toLocaleString("en-NG", {
@@ -128,6 +143,7 @@ const ProductDetails = () => {
                       <FaStar className="text-yellow-400" /> Rating:{" "}
                       {product.rating}
                     </p>
+                    {/* ✅ Quantity here shows product stock (unchanged) */}
                     <p className="flex items-center gap-2 mb-2">
                       <FaShoppingCart className="text-green-400" /> Quantity:{" "}
                       {product.quantity}
@@ -141,8 +157,8 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Product Info (kept original logic; tightened description width for lg) */}
-            <div className=" flex flex-col justify-start  md:ml-8 w-full">
+            {/* PRODUCT INFO */}
+            <div className="flex flex-col justify-start md:ml-8 w-full">
               <h2 className="text-xl md:text-2xl font-semibold ml-4 md:ml-0">
                 {product.name}
               </h2>
@@ -162,20 +178,28 @@ const ProductDetails = () => {
                 <div className="mr-4 md:mr-16">
                   {product.countInStock > 0 && (
                     <div className="ml-2 md:ml-12">
-                      <select
-                        value={qty}
-                        onChange={(e) => setQty(e.target.value)}
-                        className="p-2 w-20 rounded-lg bg-black text-white"
-                      >
-                        {[...Array(product.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </select>
+                      {/* ✅ Modern + / − Quantity Control */}
+                      <div className="flex items-center gap-3 bg-black border border-gray-700 rounded-lg w-fit px-3 py-1.5">
+                        <button
+                          onClick={decreaseQty}
+                          className="text-gray-400 hover:text-pink-500 transition"
+                        >
+                          −
+                        </button>
+                        <span className="text-white font-semibold w-6 text-center">
+                          {qty}
+                        </span>
+                        <button
+                          onClick={increaseQty}
+                          className="text-gray-400 hover:text-pink-500 transition"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
+
                 <div className="btn-container flex justify-center md:justify-start mr-8 md:mr-0">
                   <button
                     onClick={addToCartHandler}
@@ -188,7 +212,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Tabs Section (unchanged) */}
+            {/* TABS SECTION */}
             <div className="mt-12 w-full md:w-[90%] flex flex-wrap items-start justify-center md:justify-between">
               <ProductsTabs
                 LoadingProductReview={LoadingProductReview}

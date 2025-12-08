@@ -11,7 +11,7 @@ const ProductCard = ({ p }) => {
 
   const addToCartHandler = (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
-    toast.success("Item added 🛒", { autoClose: 1500 });
+    toast.success("Item added successfully", { autoClose: 1500 });
   };
 
   return (
