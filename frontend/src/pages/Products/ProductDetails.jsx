@@ -123,7 +123,9 @@ const ProductDetails = () => {
                     currency: "NGN",
                   })}
                 </h2>
-                <div className="grid grid-cols-2 gap-x-8 text-[0.9rem] md:text-[1rem]">
+
+                {/* ✅ Increased gap to prevent wrapping on mobile */}
+                <div className="grid grid-cols-2 gap-x-12 sm:gap-x-16 text-[0.9rem] md:text-[1rem]">
                   <div>
                     <p className="flex items-center gap-2 mb-2">
                       <FaStore className="text-blue-400" /> Brand:{" "}

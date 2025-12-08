@@ -2,7 +2,7 @@ import React from "react";
 
 const ProgressSteps = ({ step1, step2, step3 }) => {
   return (
-    <div className="flex justify-center items-center gap-4 mt-6">
+    <div className="flex justify-center items-center gap-4 mt-6 px-4 w-full">
       {/* Step 1 */}
       <div className="flex flex-col items-center">
         <div
