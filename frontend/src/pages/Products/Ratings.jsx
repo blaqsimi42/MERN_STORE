@@ -2,12 +2,12 @@ import React from "react";
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Ratings = ({ value = 0, text, color }) => {
-  // Ensure value is always a valid number
+  // Make sure value is always a valid number
   const ratingValue = Number(value);
   if (isNaN(ratingValue)) return null; // skip rendering if invalid
 
-  // Round to 1 decimal place and clamp between 0 and 5
-  const clampedValue = Math.min(Math.max(Number(ratingValue.toFixed(1)), 0), 5);
+  // Clamp between 0 and 5
+  const clampedValue = Math.min(Math.max(ratingValue, 0), 5);
 
   const fullStars = Math.floor(clampedValue);
   const hasHalfStar = clampedValue - fullStars >= 0.5;
@@ -29,12 +29,7 @@ const Ratings = ({ value = 0, text, color }) => {
       ))}
 
       {/* Optional rating text */}
-      {text && (
-        <span className={`ml-2 text-${color}`}>
-          {Number(clampedValue.toFixed(1))} {/* Show only 1 decimal */}
-          {` ${text}`}
-        </span>
-      )}
+      {text && <span className={`ml-2 text-${color}`}>{text}</span>}
     </div>
   );
 };
