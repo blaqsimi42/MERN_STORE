@@ -73,10 +73,18 @@ const Cart = () => {
       {/* 🛒 Main Container */}
       <div className="container flex justify-around items-start flex-wrap mx-auto mt-8 px-3">
         {cartItems.length === 0 ? (
-          <div className="flex flex-col items-center mt-[10rem] gap-2 text-center">
-            <Search size={24} className="text-pink-400" />
-            <p className="font-semibold text-white">Your Cart is empty</p>
-            <Link to="/shop" className="text-pink-500 hover:underline">
+          /* 🕵️ Empty State (Revamped design from Favorites) */
+          <div className="flex flex-col items-center mt-[12rem] gap-3 text-center bg-[#1a1a1a] border border-gray-800 rounded-2xl shadow-lg shadow-black/40 p-8 backdrop-blur-sm transition-all duration-300 hover:shadow-pink-500/20">
+            <div className="p-4 bg-pink-500/10 rounded-full border border-pink-600/30">
+              <Search size={24} className="text-pink-400" />
+            </div>
+            <p className="font-semibold text-white text-base">
+              No cart items found
+            </p>
+            <Link
+              to="/shop"
+              className="text-pink-400 text-sm hover:text-pink-300 underline-offset-2 hover:underline transition"
+            >
               Get items to your Cart
             </Link>
           </div>
